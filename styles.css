@@ -1,0 +1,184 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte e cores principais */
+:root {
+    --primaria: #1E3A5F; /* Azul petróleo */
+    --secundaria: #4F8CC9; /* Azul claro */
+    --neutra-clara: #F2F5F9; /* Cinza gelo */
+    --neutra-media: #B0BEC5; /* Cinza azulado */
+    --destaque: #00C896; /* Verde segurança */
+    --text: #333333;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    background-color: var(--neutra-clara);
+    color: var(--text);
+}
+
+
+
+/* ====== Cabeçalho ====== */
+header {
+    background: var(--primaria);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* ====== Navegação ====== */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secundaria);
+}
+
+/* Links gerais fora do header */
+a {
+    color: var(--secundaria);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* ====== Seções ====== */
+section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--card-bg);
+    border-radius: 15px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--neutra-media);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    color: var(--primaria);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primaria);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px;
+}
+
+/* ====== Seção inicial ====== */
+#home {
+    background: linear-gradient(to bottom, var(--neutra-clara), #ffffff);
+    border: none;
+    box-shadow: none;
+}
+
+#home h2 {
+    color: var(--primaria);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* ====== Efeitos interativos ====== */
+section:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}
+
+/* ====== Rodapé opcional ====== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--primaria);
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Botões e ações */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primaria);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-action {
+    background: var(--destaque);
+    color: white;
+    border: none;
+}
+
+.success-icon {
+    color: var(--destaque);
+}
