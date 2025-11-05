@@ -1,184 +1,195 @@
-/* Reset básico */
+/* ===== Reset e Configurações Globais ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fonte e cores principais */
-:root {
-    --primaria: #1E3A5F; /* Azul petróleo */
-    --secundaria: #4F8CC9; /* Azul claro */
-    --neutra-clara: #F2F5F9; /* Cinza gelo */
-    --neutra-media: #B0BEC5; /* Cinza azulado */
-    --destaque: #00C896; /* Verde segurança */
-    --text: #333333;
-    --card-bg: #ffffff;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    line-height: 1.6;
-    background-color: var(--neutra-clara);
-    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
+/* ===== Animação de Fade-in ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-
-/* ====== Cabeçalho ====== */
-header {
-    background: var(--primaria);
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* ===== Barra de Navegação (Navbar) ===== */
+.navbar {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-/* ====== Navegação ====== */
-nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(204, 163, 93, 0.2);
     flex-wrap: wrap;
 }
 
+.navbar h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #CCA35D; /* Dourado */
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
 nav a {
+    color: #ffffff;
     text-decoration: none;
-    color: white;
     font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    position: relative;
     transition: color 0.3s ease;
 }
 
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #CCA35D;
+    transition: width 0.4s ease;
+}
+
 nav a:hover {
-    color: var(--secundaria);
+    color: #CCA35D;
 }
 
-/* Links gerais fora do header */
-a {
-    color: var(--secundaria);
-    text-decoration: none;
+nav a:hover::after {
+    width: 100%;
 }
 
-a:hover,
-a:focus {
-    text-decoration: underline;
-}
-
-/* ====== Seções ====== */
-section {
-    padding: 80px 20px;
+/* ===== Seção Principal (Hero) ===== */
+.hero-highlight {
     text-align: center;
-    max-width: 900px;
-    margin: 40px auto;
-    background: var(--card-bg);
-    border-radius: 15px;
-    margin-bottom: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--neutra-media);
+    color: white;
+    padding: 140px 20px;
+    background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop' ) no-repeat center center/cover;
+    position: relative;
 }
 
-section h2 {
-    font-size: 1.8rem;
-    color: var(--primaria);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--primaria);
-    display: inline-block;
-    padding-bottom: 5px;
+.hero-highlight .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
-section p {
-    font-size: 1.1rem;
-    color: #555;
-    margin: 10px;
+.hero-highlight h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1s ease-out;
 }
 
-/* ====== Seção inicial ====== */
-#home {
-    background: linear-gradient(to bottom, var(--neutra-clara), #ffffff);
-    border: none;
-    box-shadow: none;
+/* ===== Cards de Conteúdo ===== */
+.card {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 50px 40px;
+    background: #1a1a1a;
+    border: 1px solid rgba(204, 163, 93, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#home h2 {
-    color: var(--primaria);
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(204, 163, 93, 0.1);
+}
+
+.card h2 {
+    font-family: 'Cinzel', serif;
     font-size: 2rem;
-    margin-bottom: 10px;
+    color: #CCA35D;
+    margin-bottom: 25px;
+    display: inline-block;
+    border-bottom: 2px solid #CCA35D;
+    padding-bottom: 10px;
 }
 
-/* ====== Efeitos interativos ====== */
-section:hover {
-    transform: translateY(-4px);
-    transition: transform 0.3s ease;
+.card p {
+    font-size: 1.1rem;
+    color: #c7c7c7;
+    text-align: justify;
 }
 
-/* ====== Responsividade ====== */
+.card p b {
+    color: #CCA35D;
+    font-weight: 500;
+}
+
+/* ===== Rodapé (Footer) ===== */
+footer {
+    background: #000000;
+    color: #a0a0a0;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+    margin-top: 80px;
+    border-top: 1px solid rgba(204, 163, 93, 0.2);
+}
+
+/* ===== Responsividade ===== */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.4rem;
-    }
-
-    nav ul {
+    .navbar {
         flex-direction: column;
-        gap: 10px;
+        gap: 1rem;
     }
 
-    section {
-        padding: 60px 15px;
+    .hero-highlight h2 {
+        font-size: 2.5rem;
     }
 
-    section h2 {
-        font-size: 1.5rem;
+    .card {
+        margin: 40px 20px;
+        padding: 40px 25px;
     }
 
-    section p {
+    .card h2 {
+        font-size: 1.8rem;
+    }
+
+    .card p {
         font-size: 1rem;
     }
-}
-
-/* ====== Rodapé opcional ====== */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: var(--primaria);
-    color: white;
-    font-size: 0.9rem;
-}
-
-/* Botões e ações */
-.btn {
-    display: inline-block;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--primaria);
-    color: white;
-    border: none;
-}
-
-.btn-primary:hover {
-    filter: brightness(1.05);
-}
-
-.btn-action {
-    background: var(--destaque);
-    color: white;
-    border: none;
-}
-
-.success-icon {
-    color: var(--destaque);
 }

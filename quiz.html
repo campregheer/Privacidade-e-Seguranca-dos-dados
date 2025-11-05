@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZ</title>
+    <title>QUIZ - Privacidade e Segurança Digital</title>
+    <!-- Link para o CSS principal e do quiz -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="quiz.css">
-    
+    <!-- Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <h1>Privacidade e Segurança Digital</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Voltar ao início</a></li>
+                <li><a href="index.html">Voltar ao Início</a></li>
             </ul>
         </nav>
     </header>
 
-    <div>
-        <section id="quiz">
-            <h2>QUIZ: Teste seus conhecimentos sobre Privacidade e Segurança Digital</h2>
+    <main>
+        <section id="quiz" class="card">
+            <h2>Teste seus conhecimentos</h2>
             <form>
                 <ol>
+                    <!-- Pergunta 1 -->
                     <li>
                         <p>Qual a diferença entre privacidade e segurança online?</p>
-                            <label class="option"><input type="radio" name="q1" value="a"> Privacidade é sobre proteger dispositivos, enquanto segurança trata do comportamento do usuário</label>
-                            <label class="option"><input type="radio" name="q1" value="b"> Privacidade envolve o controle sobre as informações pessoais, enquanto segurança online busca impedir acessos e ataques virtuais</label>
-                            <label class="option"><input type="radio" name="q1" value="c"> Não há diferença entre privacidade e segurança digital</label>
-                            <label class="option"><input type="radio" name="q1" value="d"> Segurança online é um direito, enquanto privacidade é uma ferramenta de proteção</label>
-
+                        <label class="option"><input type="radio" name="q1" value="a"> Privacidade é sobre proteger dispositivos, enquanto segurança trata do comportamento do usuário</label>
+                        <label class="option"><input type="radio" name="q1" value="b"> Privacidade envolve o controle sobre as informações pessoais, enquanto segurança online busca impedir acessos e ataques virtuais</label>
+                        <label class="option"><input type="radio" name="q1" value="c"> Não há diferença entre privacidade e segurança digital</label>
+                        <label class="option"><input type="radio" name="q1" value="d"> Segurança online é um direito, enquanto privacidade é uma ferramenta de proteção</label>
                     </li>
                     <li>
                         <p>Por que senhas diferentes e fortes são importantes? </p>
@@ -62,16 +66,19 @@
                     </li>
                 </ol>
                 <div class="quiz-actions">
-                    <input type="submit" value="Enviar Respostas" class="btn btn-action">
+                    <button type="submit" class="btn">Enviar Respostas</button>
                 </div>
-                <div class="quiz-result" aria-live="polite" hidden></div>
+                <div class="quiz-result" hidden></div>
             </form>
         </section>
+    </main>
 
-    </div>
+    <footer>
+        <p>© 2025 - Privacidade e Segurança Digital | Desenvolvido por estudantes</p>
+    </footer>
 
-<script>
-    const form = document.querySelector('form');
+    <script>
+            const form = document.querySelector('form');
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         let score = 0;
@@ -121,6 +128,6 @@
             alert(`Você acertou ${score} de ${total} perguntas.`);
         }
     });
-</script>
+    </script>
 </body>
 </html>

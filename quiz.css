@@ -1,115 +1,82 @@
-/* Estilos específicos para a página do QUIZ */
-/* Depende das variáveis definidas em styles.css */
-
-#quiz {
-    max-width: 820px;
-    margin: 40px auto;
-    padding: 28px;
-}
-
-#quiz h2 {
-    font-size: 1.6rem;
-    margin-bottom: 18px;
-    color: var(--primaria);
-}
-
-form ol {
-    list-style: decimal inside;
-    padding-left: 0;
-}
-
-form li {
-    margin: 18px 0;
-    padding: 18px;
-    background: var(--card-bg);
-    border: 1px solid var(--neutra-media);
-    border-radius: 12px;
+/* ===== Estilo do Quiz ===== */
+#quiz ol {
+    list-style: none;
+    padding: 0;
     text-align: left;
 }
 
-/* Pergunta */
-form li p {
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--primaria);
+#quiz li {
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(204, 163, 93, 0.1);
+    padding-bottom: 20px;
 }
 
-/* Opções */
-form input[type="radio"] {
-    transform: scale(1.08);
-    margin-right: 10px;
-    accent-color: var(--secundaria);
+#quiz li p {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
 }
 
-form label.option {
+.option {
     display: block;
-    padding: 8px 10px;
-    border-radius: 8px;
-    transition: background 0.12s ease, border-color 0.12s ease;
+    background: #2a2a2a;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
     cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-form input[type="radio"]:focus + label.option,
-form label.option:hover {
-    background: rgba(79,140,201,0.08); /* suave destaque com a cor secundária */
-    border-color: var(--secundaria);
+.option:hover {
+    background-color: #333;
+    border-color: #CCA35D;
 }
 
-/* Submit */
+.option input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #CCA35D;
+}
+
+/* ===== Botão e Resultados ===== */
 .quiz-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 18px;
-}
-
-input[type="submit"].btn {
-    padding: 10px 18px;
-    border-radius: 10px;
-}
-
-/* Mensagem de resultado temporária (caso queira mostrar no DOM em vez de alert) */
-.quiz-result {
-    margin-top: 18px;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 18px;
     text-align: center;
-    font-weight: 700;
-    background: var(--card-bg);
-    border: 1px solid var(--neutra-media);
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(30,58,95,0.08);
-    color: var(--primaria);
+    margin-top: 30px;
 }
 
-.quiz-result.result-card.success {
-    border-color: rgba(0,200,150,0.35);
-    background: linear-gradient(180deg, rgba(0,200,150,0.06), var(--card-bg));
-    color: #056b4f; /* darker green */
+.btn {
+    background-color: #CCA35D;
+    color: #0a0a0a;
+    border: none;
+    padding: 12px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.quiz-result.result-card.warn {
-    border-color: rgba(79,140,201,0.35);
-    background: linear-gradient(180deg, rgba(79,140,201,0.04), var(--card-bg));
-    color: var(--primaria);
+.btn:hover {
+    background-color: #b8914e;
+    transform: scale(1.05);
 }
 
-.quiz-result.result-card.error {
-    border-color: rgba(220,53,69,0.25);
-    background: linear-gradient(180deg, rgba(220,53,69,0.04), var(--card-bg));
-    color: #b02a37;
+.quiz-result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    #quiz {
-        padding: 18px;
-        margin: 20px 12px;
-    }
+.quiz-result.success { background-color: rgba(40, 167, 69, 0.2); border: 1px solid #28a745; }
+.quiz-result.warn { background-color: rgba(255, 193, 7, 0.2); border: 1px solid #ffc107; }
+.quiz-result.error { background-color: rgba(220, 53, 69, 0.2); border: 1px solid #dc3545; }
 
-    form li {
-        padding: 14px;
-    }
+.quiz-result h3 {
+    font-family: 'Cinzel', serif;
+    color: #CCA35D;
+    margin-bottom: 10px;
 }
